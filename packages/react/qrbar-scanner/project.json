@@ -1,0 +1,52 @@
+{
+  "name": "react-qrbar-scanner",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/react/qrbar-scanner/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/react/qrbar-scanner/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/react/qrbar-scanner/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/react/qrbar-scanner",
+        "tsConfig": "packages/react/qrbar-scanner/tsconfig.lib.json",
+        "packageJson": "packages/react/qrbar-scanner/package.json",
+        "main": "packages/react/qrbar-scanner/src/index.ts",
+        "assets": [
+          "packages/react/qrbar-scanner/README.md",
+          "packages/react/qrbar-scanner/LICENSE"
+        ]
+      }
+    },
+    "deploy": {
+      "executor": "ngx-deploy-npm:deploy",
+      "options": {
+        "access": "public"
+      }
+    }
+  }
+}
