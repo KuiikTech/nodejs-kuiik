@@ -1,0 +1,53 @@
+{
+    "manifestVersion": "1",
+    "id": "kuiiktec",
+    "version": "3.0.4",
+    "name": "kuiik.tec",
+    "description": "Toolkit for azure devops developed by Kuiik Tec",
+    "publisher": "kuiiktec",
+    "categories": [
+      "Azure Pipelines"
+    ],
+    "tags": [
+      "Extension",
+      "Marketplace",
+      "Continuous Delivery",
+      "Release",
+      "Build",
+      "Azure Pipelines",
+      "Azure DevOps Extensions",
+      "Visual Studio Extensions"
+    ],
+    "icons": {
+      "default": "./img/kuiik-tec.png"
+    },
+    "public": true,
+    "targets": [
+      {
+        "id": "Microsoft.VisualStudio.Services"
+      }
+    ],
+    "scopes": [],
+    "content": {
+      "details": {
+        "path": "README.md"
+      }
+    },
+    "contributions": [
+      {
+        "id": "flagger-canary-monitor",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+          "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+          "name": "flagger-monitor"
+        }
+      }
+    ],
+    "files": [
+      {
+        "path": "flagger-monitor"
+      }
+    ]
+  }
